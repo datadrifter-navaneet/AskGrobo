@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AskGrobo — AI-Powered e-Governance</title>
+<title>AskRobo — AI-Powered e-Governance</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #020408;
-  --surface: rgba(255,255,255,0.03);
-  --glass: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.08);
-  --cyan: #00e5ff;
-  --teal: #00b4d8;
-  --green: #00ff88;
-  --violet: #7c3aed;
-  --pink: #f72585;
-  --gold: #ffd60a;
-  --text: #f0f4f8;
-  --muted: rgba(240,244,248,0.5);
+  --bg: #ffffff;
+  --surface: rgba(0,0,0,0.03);
+  --glass: rgba(0,0,0,0.04);
+  --border: rgba(0,0,0,0.1);
+  --cyan: #ff1a1a;
+  --teal: #cc0000;
+  --green: #ffffff;
+  --violet: #8b0000;
+  --pink: #ff4444;
+  --gold: #ff6666;
+  --text: #0a0000;
+  --muted: rgba(10,0,0,0.5);
   --font-head: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -29,7 +29,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
+  
   color: var(--text);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -41,11 +41,11 @@ body {
   position: fixed; width: 12px; height: 12px; background: var(--cyan);
   border-radius: 50%; pointer-events: none; z-index: 99999;
   transform: translate(-50%,-50%); transition: transform .1s;
-  box-shadow: 0 0 20px var(--cyan), 0 0 60px rgba(0,229,255,.3);
+  box-shadow: 0 0 20px var(--cyan), 0 0 60px rgba(255,26,26,.3);
   mix-blend-mode: screen;
 }
 #cursor-ring {
-  position: fixed; width: 40px; height: 40px; border: 1px solid rgba(0,229,255,.4);
+  position: fixed; width: 40px; height: 40px; border: 1px solid rgba(255,26,26,.4);
   border-radius: 50%; pointer-events: none; z-index: 99998;
   transform: translate(-50%,-50%); transition: all .15s ease;
 }
@@ -53,7 +53,7 @@ body {
 /* ── LOADER ── */
 #loader {
   position: fixed; inset: 0; z-index: 9999;
-  background: var(--bg);
+  
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   transition: opacity .8s ease;
 }
@@ -73,7 +73,7 @@ nav {
   padding: 1.2rem 4rem;
   display: flex; align-items: center; justify-content: space-between;
   backdrop-filter: blur(20px);
-  background: rgba(2,4,8,.7);
+  background: rgba(255,255,255,.85);
   border-bottom: 1px solid var(--border);
   transition: all .3s;
 }
@@ -88,7 +88,7 @@ nav {
   padding: .6rem 1.4rem; border-radius: 6px; border: none; cursor: pointer;
   letter-spacing: .5px; transition: all .3s; position: relative; overflow: hidden;
 }
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(0,229,255,.5); }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(255,26,26,.5); }
 
 /* ── HERO ── */
 #hero {
@@ -97,15 +97,15 @@ nav {
 }
 .hero-bg-grid {
   position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(0,229,255,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,229,255,.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255,26,26,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,26,26,.04) 1px, transparent 1px);
   background-size: 60px 60px;
   animation: gridDrift 20s linear infinite;
 }
 @keyframes gridDrift { to { background-position: 60px 60px; } }
 .hero-glow {
   position: absolute; width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,229,255,.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,26,26,.08) 0%, transparent 70%);
   top: 50%; left: 50%; transform: translate(-50%,-50%);
   animation: pulse 4s ease-in-out infinite;
 }
@@ -114,7 +114,7 @@ nav {
 .hero-content { position: relative; z-index: 2; max-width: 800px; text-align: center; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(0,229,255,.08); border: 1px solid rgba(0,229,255,.2);
+  background: rgba(255,26,26,.07); border: 1px solid rgba(255,26,26,.25);
   padding: .4rem 1rem; border-radius: 100px; font-size: .75rem;
   font-family: var(--font-mono); color: var(--cyan); margin-bottom: 2rem;
   animation: fadeUp .8s ease forwards;
@@ -143,13 +143,13 @@ nav {
   padding: .9rem 2rem; border-radius: 8px; border: none; cursor: pointer;
   position: relative; overflow: hidden; transition: all .3s; letter-spacing: .3px;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,229,255,.4); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255,26,26,.4); }
 .btn-secondary {
   background: transparent; color: var(--text); font-family: var(--font-head); font-weight: 600; font-size: .9rem;
   padding: .9rem 2rem; border-radius: 8px; border: 1px solid var(--border); cursor: pointer;
   transition: all .3s; letter-spacing: .3px;
 }
-.btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 20px rgba(0,229,255,.15); }
+.btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 20px rgba(255,26,26,.15); }
 
 /* Ripple */
 .ripple { position: absolute; border-radius: 50%; transform: scale(0); background: rgba(255,255,255,.3); animation: rippleAnim .6s linear; pointer-events: none; }
@@ -172,7 +172,7 @@ section { padding: 6rem 4rem; position: relative; }
 .section-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 600px; }
 
 /* ── FEATURES ── */
-#features { background: linear-gradient(180deg, transparent, rgba(0,229,255,.02), transparent); }
+#features { background: linear-gradient(180deg, transparent, rgba(255,26,26,.02), transparent); }
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
 .feat-card {
   background: var(--glass); border: 1px solid var(--border); border-radius: 16px;
@@ -181,10 +181,10 @@ section { padding: 6rem 4rem; position: relative; }
 }
 .feat-card::before {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(0,229,255,.05), transparent);
+  background: linear-gradient(135deg, rgba(255,26,26,.05), transparent);
   opacity: 0; transition: opacity .4s;
 }
-.feat-card:hover { border-color: rgba(0,229,255,.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 0 1px rgba(0,229,255,.1); }
+.feat-card:hover { border-color: rgba(255,26,26,.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 0 1px rgba(255,26,26,.1); }
 .feat-card:hover::before { opacity: 1; }
 .feat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; }
 .feat-title { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: .6rem; }
@@ -192,7 +192,7 @@ section { padding: 6rem 4rem; position: relative; }
 .feat-tag { display: inline-block; margin-top: 1rem; font-family: var(--font-mono); font-size: .65rem; padding: .2rem .6rem; border-radius: 4px; letter-spacing: 1px; }
 
 /* ── AI WORKFLOW ── */
-#workflow { background: radial-gradient(ellipse at center, rgba(0,180,216,.04) 0%, transparent 70%); }
+#workflow { background: radial-gradient(ellipse at center, rgba(204,0,0,.04) 0%, transparent 70%); }
 .workflow-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
 .workflow-steps { display: flex; flex-direction: column; gap: 0; }
 .workflow-step {
@@ -203,7 +203,7 @@ section { padding: 6rem 4rem; position: relative; }
 .workflow-step:hover, .workflow-step.active { background: var(--glass); border-left-color: var(--cyan); }
 .workflow-step::before {
   content: attr(data-num); position: absolute; left: -1.7rem; top: 50%; transform: translateY(-50%);
-  width: 2.5rem; height: 2.5rem; background: var(--bg); border: 1px solid var(--border);
+  width: 2.5rem; height: 2.5rem;  border: 1px solid var(--border);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-family: var(--font-mono); font-size: .7rem; color: var(--muted);
   transition: all .3s;
@@ -225,7 +225,7 @@ section { padding: 6rem 4rem; position: relative; }
 .routing-display { font-family: var(--font-mono); font-size: .78rem; }
 .route-line { display: flex; align-items: center; gap: .75rem; padding: .6rem 0; border-bottom: 1px solid var(--border); }
 .route-line:last-child { border-bottom: none; }
-.route-dept { background: rgba(0,229,255,.1); color: var(--cyan); padding: .2rem .6rem; border-radius: 4px; font-size: .7rem; }
+.route-dept { background: rgba(255,26,26,.1); color: #cc0000; padding: .2rem .6rem; border-radius: 4px; font-size: .7rem; }
 .route-status { margin-left: auto; font-size: .7rem; }
 .status-routed { color: var(--green); }
 .status-pending { color: var(--gold); }
@@ -233,7 +233,7 @@ section { padding: 6rem 4rem; position: relative; }
 .typing-cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); animation: blink .7s infinite; vertical-align: middle; }
 
 /* ── AADHAAR ── */
-#aadhaar { background: linear-gradient(135deg, rgba(124,58,237,.05), rgba(0,229,255,.03)); }
+#aadhaar { background: linear-gradient(135deg, rgba(139,0,0,.05), rgba(255,26,26,.03)); }
 .aadhaar-container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
 .aadhaar-card {
   background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem;
@@ -241,18 +241,18 @@ section { padding: 6rem 4rem; position: relative; }
 }
 .aadhaar-card::after {
   content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(124,58,237,.1) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(139,0,0,.1) 0%, transparent 60%);
   pointer-events: none;
 }
 .otp-boxes { display: flex; gap: .75rem; margin: 1.5rem 0; }
 .otp-box {
-  width: 48px; height: 56px; background: rgba(255,255,255,.05);
+  width: 48px; height: 56px; background: rgba(255,26,26,.05);
   border: 1px solid var(--border); border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700; color: var(--cyan);
   transition: all .3s;
 }
-.otp-box.filled { border-color: var(--cyan); background: rgba(0,229,255,.08); box-shadow: 0 0 15px rgba(0,229,255,.2); }
+.otp-box.filled { border-color: var(--cyan); background: rgba(255,26,26,.08); box-shadow: 0 0 15px rgba(255,26,26,.2); }
 .aadhaar-steps { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
 .aadhaar-step { display: flex; gap: 1rem; align-items: flex-start; }
 .step-num { min-width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--violet), var(--cyan)); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: .75rem; font-weight: 700; }
@@ -268,28 +268,28 @@ section { padding: 6rem 4rem; position: relative; }
   position: relative; overflow: hidden;
 }
 .dept-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); transform: scaleX(0); transition: transform .4s; }
-.dept-card:hover { transform: translateY(-4px); border-color: rgba(0,229,255,.2); box-shadow: 0 15px 40px rgba(0,0,0,.3); }
+.dept-card:hover { transform: translateY(-4px); border-color: rgba(255,26,26,.2); box-shadow: 0 15px 40px rgba(0,0,0,.3); }
 .dept-card:hover::before { transform: scaleX(1); }
 .dept-icon { font-size: 2rem; margin-bottom: .75rem; }
 .dept-name { font-family: var(--font-head); font-size: .8rem; font-weight: 700; color: var(--text); }
 .dept-count { font-family: var(--font-mono); font-size: .65rem; color: var(--muted); margin-top: .25rem; }
 
 /* ── ANALYTICS ── */
-#analytics { background: radial-gradient(ellipse at 80% 50%, rgba(0,255,136,.04) 0%, transparent 60%); }
+#analytics { background: radial-gradient(ellipse at 80% 50%, rgba(255,26,26,.04) 0%, transparent 60%); }
 .analytics-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem; margin-top: 4rem; }
 .analytics-grid .full { grid-column: 1 / -1; }
 .metric-card {
   background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;
   transition: all .3s;
 }
-.metric-card:hover { border-color: rgba(0,255,136,.2); }
+.metric-card:hover { border-color: rgba(255,255,255,.2); }
 .metric-label { font-family: var(--font-mono); font-size: .65rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
 .metric-value { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; margin: .5rem 0; }
 .metric-delta { font-size: .75rem; display: flex; align-items: center; gap: .3rem; }
 .delta-up { color: var(--green); }
 .delta-down { color: var(--pink); }
 .chart-bar-wrap { display: flex; gap: .4rem; align-items: flex-end; height: 60px; margin-top: 1rem; }
-.chart-bar { flex: 1; background: linear-gradient(180deg, var(--cyan), rgba(0,229,255,.2)); border-radius: 3px 3px 0 0; transition: height .8s cubic-bezier(.4,0,.2,1); }
+.chart-bar { flex: 1; background: linear-gradient(180deg, var(--cyan), rgba(255,26,26,.2)); border-radius: 3px 3px 0 0; transition: height .8s cubic-bezier(.4,0,.2,1); }
 .donut-wrap { position: relative; width: 100px; height: 100px; margin: 1rem auto; }
 .donut-wrap canvas { width: 100%; height: 100%; }
 .donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
@@ -297,7 +297,7 @@ section { padding: 6rem 4rem; position: relative; }
 .donut-sub { font-size: .6rem; color: var(--muted); }
 
 /* ── TIMELINE ── */
-#timeline { background: linear-gradient(180deg, transparent, rgba(0,229,255,.02), transparent); }
+#timeline { background: linear-gradient(180deg, transparent, rgba(255,26,26,.02), transparent); }
 .timeline { position: relative; max-width: 800px; margin: 4rem auto 0; }
 .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, transparent, var(--cyan), transparent); transform: translateX(-50%); }
 .tl-item { display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 3rem; position: relative; }
@@ -312,23 +312,23 @@ section { padding: 6rem 4rem; position: relative; }
 .tl-desc { font-size: .82rem; color: var(--muted); line-height: 1.5; }
 
 /* ── TECH STACK ── */
-#tech { background: radial-gradient(ellipse at 20% 50%, rgba(124,58,237,.05) 0%, transparent 60%); }
+#tech { background: radial-gradient(ellipse at 20% 50%, rgba(139,0,0,.05) 0%, transparent 60%); }
 .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 4rem; }
 .tech-card {
   background: var(--glass); border: 1px solid var(--border); border-radius: 14px;
   padding: 1.5rem; transition: all .3s;
 }
-.tech-card:hover { border-color: rgba(124,58,237,.4); box-shadow: 0 0 30px rgba(124,58,237,.1); }
+.tech-card:hover { border-color: rgba(139,0,0,.4); box-shadow: 0 0 30px rgba(139,0,0,.1); }
 .tech-cat { font-family: var(--font-mono); font-size: .6rem; letter-spacing: 2px; color: var(--violet); text-transform: uppercase; margin-bottom: .75rem; }
 .tech-items { display: flex; flex-wrap: wrap; gap: .5rem; }
-.tech-pill { background: rgba(124,58,237,.1); border: 1px solid rgba(124,58,237,.2); color: var(--text); font-size: .75rem; padding: .25rem .7rem; border-radius: 100px; font-family: var(--font-mono); }
+.tech-pill { background: rgba(139,0,0,.1); border: 1px solid rgba(139,0,0,.2); color: var(--text); font-size: .75rem; padding: .25rem .7rem; border-radius: 100px; font-family: var(--font-mono); }
 
 /* ── SECURITY ── */
 #security { }
 .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; align-items: center; }
 .security-list { display: flex; flex-direction: column; gap: 1rem; }
 .sec-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; border-radius: 12px; border: 1px solid var(--border); background: var(--glass); transition: all .3s; }
-.sec-item:hover { border-color: rgba(0,229,255,.2); }
+.sec-item:hover { border-color: rgba(255,26,26,.2); }
 .sec-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 .sec-title { font-family: var(--font-head); font-size: .9rem; font-weight: 700; margin-bottom: .25rem; }
 .sec-desc { font-size: .8rem; color: var(--muted); }
@@ -343,24 +343,24 @@ section { padding: 6rem 4rem; position: relative; }
   top: 50%; left: 50%; transform: translate(-50%, -50%);
   animation: secRotate 20s linear infinite;
 }
-.sec-ring:nth-child(1) { width: 240px; height: 240px; border-color: rgba(0,229,255,.2); }
-.sec-ring:nth-child(2) { width: 180px; height: 180px; border-color: rgba(0,255,136,.2); animation-duration: 15s; animation-direction: reverse; }
-.sec-ring:nth-child(3) { width: 120px; height: 120px; border-color: rgba(124,58,237,.3); animation-duration: 10s; }
-.sec-core { position: absolute; width: 60px; height: 60px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--green)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 0 30px rgba(0,229,255,.5); }
+.sec-ring:nth-child(1) { width: 240px; height: 240px; border-color: rgba(255,26,26,.2); }
+.sec-ring:nth-child(2) { width: 180px; height: 180px; border-color: rgba(255,255,255,.2); animation-duration: 15s; animation-direction: reverse; }
+.sec-ring:nth-child(3) { width: 120px; height: 120px; border-color: rgba(139,0,0,.3); animation-duration: 10s; }
+.sec-core { position: absolute; width: 60px; height: 60px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--green)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 0 30px rgba(255,26,26,.5); }
 @keyframes secRotate { to { transform: translate(-50%,-50%) rotate(360deg); } }
 
 /* ── FAQ ── */
-#faq { background: linear-gradient(180deg, transparent, rgba(0,229,255,.02), transparent); }
+#faq { background: linear-gradient(180deg, transparent, rgba(255,26,26,.02), transparent); }
 .faq-list { max-width: 800px; margin: 4rem auto 0; display: flex; flex-direction: column; gap: .75rem; }
 .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all .3s; }
-.faq-item.open { border-color: rgba(0,229,255,.2); }
+.faq-item.open { border-color: rgba(255,26,26,.2); }
 .faq-q {
   width: 100%; background: var(--glass); border: none; color: var(--text);
   padding: 1.25rem 1.5rem; font-family: var(--font-head); font-size: .95rem; font-weight: 600;
   display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-align: left;
   transition: background .2s;
 }
-.faq-q:hover { background: rgba(0,229,255,.05); }
+.faq-q:hover { background: rgba(255,26,26,.05); }
 .faq-chevron { transition: transform .3s; font-size: 1rem; color: var(--cyan); }
 .faq-item.open .faq-chevron { transform: rotate(180deg); }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
@@ -368,7 +368,7 @@ section { padding: 6rem 4rem; position: relative; }
 
 /* ── VISION ── */
 #vision {
-  background: linear-gradient(135deg, rgba(0,229,255,.05), rgba(0,255,136,.03), rgba(124,58,237,.05));
+  background: linear-gradient(135deg, rgba(255,26,26,.06), rgba(255,220,220,.15), rgba(139,0,0,.04));
   text-align: center; padding: 8rem 4rem;
 }
 .vision-quote {
@@ -379,11 +379,11 @@ section { padding: 6rem 4rem; position: relative; }
 .vision-tagline { color: var(--muted); margin-top: 2rem; font-size: 1rem; }
 
 /* ── CONTACT ── */
-#contact { background: radial-gradient(ellipse at 50% 0%, rgba(0,229,255,.06), transparent 60%); }
+#contact { background: radial-gradient(ellipse at 50% 0%, rgba(255,26,26,.06), transparent 60%); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; margin-top: 4rem; }
 .contact-info { display: flex; flex-direction: column; gap: 2rem; }
 .contact-detail { display: flex; gap: 1rem; align-items: flex-start; }
-.contact-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.contact-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,26,26,.1); border: 1px solid rgba(255,26,26,.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 .contact-detail h4 { font-family: var(--font-head); font-size: .85rem; font-weight: 700; margin-bottom: .2rem; }
 .contact-detail p { font-size: .82rem; color: var(--muted); line-height: 1.5; }
 .map-placeholder {
@@ -393,34 +393,34 @@ section { padding: 6rem 4rem; position: relative; }
 }
 .map-grid {
   position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(0,229,255,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,229,255,.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255,26,26,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,26,26,.12) 1px, transparent 1px);
   background-size: 30px 30px;
 }
 .map-pin { position: absolute; font-size: 2rem; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 10px var(--cyan)); }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-.map-label { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: .7rem; color: var(--cyan); letter-spacing: 1px; background: rgba(0,0,0,.5); padding: .3rem .8rem; border-radius: 100px; border: 1px solid rgba(0,229,255,.2); }
+.map-label { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: .7rem; color: var(--cyan); letter-spacing: 1px; background: rgba(255,255,255,.85); padding: .3rem .8rem; border-radius: 100px; border: 1px solid rgba(255,26,26,.2); }
 
 .contact-form { background: var(--glass); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
 .form-group label { font-family: var(--font-mono); font-size: .65rem; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
 .form-group input, .form-group textarea, .form-group select {
-  background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 10px;
+  background: rgba(255,26,26,.04); border: 1px solid var(--border); border-radius: 10px;
   padding: .85rem 1rem; color: var(--text); font-family: var(--font-body); font-size: .9rem;
   transition: all .3s; outline: none; resize: none;
 }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-  border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0,229,255,.1);
+  border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(255,26,26,.1);
 }
 .form-group input.error { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(247,37,133,.1); }
 .form-group .error-msg { font-size: .72rem; color: var(--pink); display: none; }
 .form-group.has-error .error-msg { display: block; }
-.form-group select option { background: #0a0f1a; }
+.form-group select option { background: #ffffff; color: #0a0000; }
 
 /* ── FOOTER ── */
 footer {
-  background: rgba(0,0,0,.5); border-top: 1px solid var(--border);
+  background: rgba(255,26,26,.06); border-top: 1px solid rgba(255,26,26,.25);
   padding: 4rem 4rem 6rem;
   text-align: center;
 }
@@ -443,8 +443,8 @@ footer {
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: rgba(0,229,255,.3); border-radius: 4px; }
+::-webkit-scrollbar-track {  }
+::-webkit-scrollbar-thumb { background: rgba(255,26,26,.3); border-radius: 4px; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 
@@ -461,7 +461,7 @@ footer {
 /* ── MOBILE MENU ── */
 .mobile-menu {
   position: fixed; inset: 0; z-index: 9998;
-  background: rgba(2,4,8,.97); backdrop-filter: blur(20px);
+  background: rgba(255,255,255,.99); backdrop-filter: blur(20px);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none; transition: opacity .4s;
 }
@@ -487,16 +487,16 @@ footer {
   width: 44px; height: 44px; border-radius: 50%;
   background: linear-gradient(135deg, var(--cyan), var(--teal));
   color: #000; border: none; cursor: pointer; font-size: 1.1rem; font-weight: 700;
-  box-shadow: 0 4px 20px rgba(0,229,255,.4); opacity: 0; pointer-events: none;
+  box-shadow: 0 4px 20px rgba(255,26,26,.4); opacity: 0; pointer-events: none;
   transition: all .3s; display: flex; align-items: center; justify-content: center;
 }
 #scrollTop.visible { opacity: 1; pointer-events: all; }
-#scrollTop:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,229,255,.6); }
+#scrollTop:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,26,26,.6); }
 
 /* ── LIVE TICKER ── */
 .live-ticker {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-  background: rgba(2,4,8,.9); border-top: 1px solid var(--border);
+  background: rgba(255,255,255,.95); border-top: 1px solid rgba(255,26,26,.25);
   padding: .4rem 0; overflow: hidden; display: flex; align-items: center;
 }
 .ticker-label {
@@ -560,7 +560,7 @@ footer {
 
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-logo">Ask<span>Grobo</span></div>
+  <div class="loader-logo">Ask<span>Robo</span></div>
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
   <div class="loader-text" id="loaderText">INITIALIZING AI ENGINE...</div>
 </div>
@@ -570,7 +570,7 @@ footer {
 
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-logo">Ask<span>Grobo</span></div>
+  <div class="nav-logo">Ask<span>Robo</span></div>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#workflow">Workflow</a></li>
@@ -606,7 +606,7 @@ footer {
       <span class="line2">Every Department.</span>
       <span class="line3">Zero Barriers.</span>
     </h1>
-    <p class="hero-sub">AskGrobo unifies citizen grievance and government services through intelligent AI routing, multilingual support, and real-time workflow tracking — transforming how citizens connect with governance.</p>
+    <p class="hero-sub">AskRobo unifies citizen grievance and government services through intelligent AI routing, multilingual support, and real-time workflow tracking — transforming how citizens connect with governance.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="ripple(event,this)">Request Demo →</button>
       <button class="btn-secondary" onclick="document.getElementById('workflow').scrollIntoView({behavior:'smooth'})">See How It Works</button>
@@ -640,22 +640,22 @@ footer {
 
   <div class="features-grid">
     <div class="feat-card reveal tilt-card">
-      <div class="feat-icon" style="background:rgba(0,229,255,.1);">🎙️</div>
+      <div class="feat-icon" style="background:rgba(255,26,26,.1);">🎙️</div>
       <div class="feat-title">Multimodal Input</div>
       <div class="feat-desc">Submit complaints via voice, text, images, video, or documents. AI processes every format with equal precision.</div>
-      <span class="feat-tag" style="background:rgba(0,229,255,.1);color:var(--cyan);">VOICE + VISION</span>
+      <span class="feat-tag" style="background:rgba(255,26,26,.1);color:var(--cyan);">VOICE + VISION</span>
     </div>
     <div class="feat-card reveal tilt-card reveal-delay-1">
-      <div class="feat-icon" style="background:rgba(0,255,136,.1);">🌐</div>
+      <div class="feat-icon" style="background:rgba(255,255,255,.1);">🌐</div>
       <div class="feat-title">Multilingual AI</div>
       <div class="feat-desc">Auto-detects Tamil or English and responds in the same language. Built-in NLP models trained on government terminology.</div>
-      <span class="feat-tag" style="background:rgba(0,255,136,.1);color:var(--green);">TAMIL + ENGLISH</span>
+      <span class="feat-tag" style="background:rgba(255,255,255,.1);color:var(--green);">TAMIL + ENGLISH</span>
     </div>
     <div class="feat-card reveal tilt-card reveal-delay-2">
-      <div class="feat-icon" style="background:rgba(124,58,237,.1);">🆔</div>
+      <div class="feat-icon" style="background:rgba(139,0,0,.1);">🆔</div>
       <div class="feat-title">Aadhaar OTP Auth</div>
       <div class="feat-desc">Secure citizen identity verification via Aadhaar-linked OTP. Every submission is authenticated and traceable.</div>
-      <span class="feat-tag" style="background:rgba(124,58,237,.1);color:#a78bfa);">SECURE AUTH</span>
+      <span class="feat-tag" style="background:rgba(139,0,0,.1);color:#a78bfa);">SECURE AUTH</span>
     </div>
     <div class="feat-card reveal tilt-card">
       <div class="feat-icon" style="background:rgba(247,37,133,.1);">🧠</div>
@@ -670,22 +670,22 @@ footer {
       <span class="feat-tag" style="background:rgba(255,214,10,.1);color:var(--gold);">REAL-TIME</span>
     </div>
     <div class="feat-card reveal tilt-card reveal-delay-2">
-      <div class="feat-icon" style="background:rgba(0,180,216,.1);">🔔</div>
+      <div class="feat-icon" style="background:rgba(204,0,0,.1);">🔔</div>
       <div class="feat-title">Smart Notifications</div>
       <div class="feat-desc">Automated SMS, Email, WhatsApp and Push notifications at every workflow stage. Citizens are never left guessing.</div>
-      <span class="feat-tag" style="background:rgba(0,180,216,.1);color:var(--teal);">OMNICHANNEL</span>
+      <span class="feat-tag" style="background:rgba(204,0,0,.1);color:var(--teal);">OMNICHANNEL</span>
     </div>
     <div class="feat-card reveal tilt-card">
-      <div class="feat-icon" style="background:rgba(0,229,255,.1);">⏱️</div>
+      <div class="feat-icon" style="background:rgba(255,26,26,.1);">⏱️</div>
       <div class="feat-title">SLA Tracking</div>
       <div class="feat-desc">Automated SLA enforcement with escalation triggers. Departments are held accountable with live deadline monitoring.</div>
-      <span class="feat-tag" style="background:rgba(0,229,255,.1);color:var(--cyan);">COMPLIANCE</span>
+      <span class="feat-tag" style="background:rgba(255,26,26,.1);color:var(--cyan);">COMPLIANCE</span>
     </div>
     <div class="feat-card reveal tilt-card reveal-delay-1">
-      <div class="feat-icon" style="background:rgba(0,255,136,.1);">📱</div>
+      <div class="feat-icon" style="background:rgba(255,255,255,.1);">📱</div>
       <div class="feat-title">Mobile + Web</div>
       <div class="feat-desc">Native Flutter apps for iOS and Android, plus a full-featured web portal — accessible from any device, anywhere.</div>
-      <span class="feat-tag" style="background:rgba(0,255,136,.1);color:var(--green);">CROSS-PLATFORM</span>
+      <span class="feat-tag" style="background:rgba(255,255,255,.1);color:var(--green);">CROSS-PLATFORM</span>
     </div>
   </div>
 </section>
@@ -693,7 +693,7 @@ footer {
 <!-- AI WORKFLOW -->
 <section id="workflow">
   <div class="section-label">AI Engine</div>
-  <h2 class="section-title reveal">How AskGrobo Resolves <br>Your Grievance in Minutes</h2>
+  <h2 class="section-title reveal">How AskRobo Resolves <br>Your Grievance in Minutes</h2>
   <p class="section-sub reveal reveal-delay-1">The AI routing engine processes every submission in real-time — classifying, assigning, and tracking with zero manual intervention.</p>
 
   <div class="workflow-container">
@@ -730,7 +730,7 @@ footer {
       </div>
     </div>
     <div class="workflow-viz reveal reveal-delay-1">
-      <div class="viz-header"><div class="viz-dot red"></div><div class="viz-dot yellow"></div><div class="viz-dot green"></div><span style="font-family:var(--font-mono);font-size:.7rem;color:var(--muted);margin-left:.5rem;">askgrobo://routing-engine</span></div>
+      <div class="viz-header"><div class="viz-dot red"></div><div class="viz-dot yellow"></div><div class="viz-dot green"></div><span style="font-family:var(--font-mono);font-size:.7rem;color:var(--muted);margin-left:.5rem;">askrobo://routing-engine</span></div>
       <div class="routing-display" id="routingDisplay">
         <div style="color:var(--muted);font-size:.7rem;margin-bottom:1rem;">// AI Routing Engine — Live Feed</div>
         <div class="route-line"><span style="color:var(--cyan)">→</span><span>grievance_id: GRV-2024-089341</span><span class="route-status status-live">● LIVE</span></div>
@@ -804,7 +804,7 @@ footer {
 <section id="departments">
   <div class="section-label">Coverage</div>
   <h2 class="section-title reveal">30+ Government Departments.<br>One Platform.</h2>
-  <p class="section-sub reveal reveal-delay-1">AskGrobo's AI router has been trained on department-specific terminology and escalation procedures for every connected department.</p>
+  <p class="section-sub reveal reveal-delay-1">AskRobo's AI router has been trained on department-specific terminology and escalation procedures for every connected department.</p>
   <div class="dept-grid">
     <div class="dept-card reveal"><div class="dept-icon">🏗️</div><div class="dept-name">Public Works</div><div class="dept-count">142 officers</div></div>
     <div class="dept-card reveal"><div class="dept-icon">💧</div><div class="dept-name">Water Supply</div><div class="dept-count">89 officers</div></div>
@@ -920,9 +920,9 @@ footer {
   <h2 class="section-title reveal">Enterprise-Grade Security<br>You Can Trust</h2>
   <div class="security-grid">
     <div class="security-list reveal">
-      <div class="sec-item"><div class="sec-icon" style="background:rgba(0,229,255,.1);">🔐</div><div><div class="sec-title">End-to-End Encryption</div><div class="sec-desc">All data encrypted in transit and at rest using AES-256. TLS 1.3 for all API communications.</div></div></div>
-      <div class="sec-item"><div class="sec-icon" style="background:rgba(0,255,136,.1);">☁️</div><div><div class="sec-title">Multi-Cloud Redundancy</div><div class="sec-desc">Deployed on AWS/Azure/GCP with 99.99% uptime SLA and auto-failover across availability zones.</div></div></div>
-      <div class="sec-item"><div class="sec-icon" style="background:rgba(124,58,237,.1);">🛡️</div><div><div class="sec-title">CERT-In Compliant</div><div class="sec-desc">Follows Indian government cybersecurity frameworks, CERT-In guidelines, and data localization norms.</div></div></div>
+      <div class="sec-item"><div class="sec-icon" style="background:rgba(255,26,26,.1);">🔐</div><div><div class="sec-title">End-to-End Encryption</div><div class="sec-desc">All data encrypted in transit and at rest using AES-256. TLS 1.3 for all API communications.</div></div></div>
+      <div class="sec-item"><div class="sec-icon" style="background:rgba(255,255,255,.1);">☁️</div><div><div class="sec-title">Multi-Cloud Redundancy</div><div class="sec-desc">Deployed on AWS/Azure/GCP with 99.99% uptime SLA and auto-failover across availability zones.</div></div></div>
+      <div class="sec-item"><div class="sec-icon" style="background:rgba(139,0,0,.1);">🛡️</div><div><div class="sec-title">CERT-In Compliant</div><div class="sec-desc">Follows Indian government cybersecurity frameworks, CERT-In guidelines, and data localization norms.</div></div></div>
       <div class="sec-item"><div class="sec-icon" style="background:rgba(255,214,10,.1);">📋</div><div><div class="sec-title">Full Audit Trails</div><div class="sec-desc">Every action logged with immutable timestamps. Complete compliance trail for RTI and legal requirements.</div></div></div>
     </div>
     <div class="security-diagram reveal reveal-delay-1">
@@ -957,7 +957,7 @@ footer {
   <div class="vision-quote reveal">
     "Every citizen deserves a government that <span class="accent">listens instantly</span>, responds intelligently, and resolves <span class="accent">without barriers</span>."
   </div>
-  <div class="vision-tagline reveal reveal-delay-1">AskGrobo is building the infrastructure for India's AI-native governance era.</div>
+  <div class="vision-tagline reveal reveal-delay-1">AskRobo is building the infrastructure for India's AI-native governance era.</div>
   <div style="margin-top:3rem;" class="reveal reveal-delay-2">
     <button class="btn-primary" onclick="ripple(event,this)">Join the Mission →</button>
   </div>
@@ -968,12 +968,12 @@ footer {
   <div class="section-label">FAQ</div>
   <h2 class="section-title reveal" style="text-align:center;">Questions? We Have Answers.</h2>
   <div class="faq-list">
-    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFAQ(this)">What languages does AskGrobo support? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">AskGrobo currently supports Tamil and English with automatic language detection. The system identifies the language used by the citizen and responds in the same language throughout the entire interaction. Support for additional Indian languages including Telugu, Kannada, and Hindi is planned for Phase 2.</div></div></div>
-    <div class="faq-item reveal reveal-delay-1"><button class="faq-q" onclick="toggleFAQ(this)">How does Aadhaar verification work? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">Citizens enter their 12-digit Aadhaar number, which triggers an OTP to their Aadhaar-linked mobile number via the UIDAI gateway. Upon successful OTP validation, a secure session is created. AskGrobo never stores Aadhaar numbers — only a tokenized reference compliant with UIDAI guidelines.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-q" onclick="toggleFAQ(this)">What languages does AskRobo support? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">AskRobo currently supports Tamil and English with automatic language detection. The system identifies the language used by the citizen and responds in the same language throughout the entire interaction. Support for additional Indian languages including Telugu, Kannada, and Hindi is planned for Phase 2.</div></div></div>
+    <div class="faq-item reveal reveal-delay-1"><button class="faq-q" onclick="toggleFAQ(this)">How does Aadhaar verification work? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">Citizens enter their 12-digit Aadhaar number, which triggers an OTP to their Aadhaar-linked mobile number via the UIDAI gateway. Upon successful OTP validation, a secure session is created. AskRobo never stores Aadhaar numbers — only a tokenized reference compliant with UIDAI guidelines.</div></div></div>
     <div class="faq-item reveal reveal-delay-2"><button class="faq-q" onclick="toggleFAQ(this)">How does AI auto-routing decide which department to route to? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">The AI classification engine uses a fine-tuned NLP model trained on thousands of government grievance categories and department-specific terminology. It analyzes the subject, keywords, location context, and historical routing patterns to determine the correct department with over 96% accuracy. Misrouted complaints can be re-classified by department officers.</div></div></div>
     <div class="faq-item reveal"><button class="faq-q" onclick="toggleFAQ(this)">What happens if an SLA deadline is breached? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">When an SLA deadline is approaching (24 hours before), an automated escalation alert is sent to the supervising officer. If the deadline is breached, the complaint is automatically escalated to the next authority level and flagged on the executive dashboard. Repeat breach patterns trigger a formal escalation report to department heads.</div></div></div>
-    <div class="faq-item reveal reveal-delay-1"><button class="faq-q" onclick="toggleFAQ(this)">How is data security and privacy maintained? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">AskGrobo uses AES-256 encryption for data at rest and TLS 1.3 for data in transit. The infrastructure is deployed on Indian data centers (AWS Mumbai region) for data sovereignty compliance. We follow CERT-In cybersecurity guidelines and all access is governed by role-based access control (RBAC) with full audit logs.</div></div></div>
-    <div class="faq-item reveal reveal-delay-2"><button class="faq-q" onclick="toggleFAQ(this)">Is there a mobile app for citizens? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">Yes. AskGrobo has native Flutter-based mobile apps for both iOS and Android, featuring voice input, camera upload, real-time tracking notifications, and offline support for low-connectivity areas. The apps are available in both Tamil and English interface languages.</div></div></div>
+    <div class="faq-item reveal reveal-delay-1"><button class="faq-q" onclick="toggleFAQ(this)">How is data security and privacy maintained? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">AskRobo uses AES-256 encryption for data at rest and TLS 1.3 for data in transit. The infrastructure is deployed on Indian data centers (AWS Mumbai region) for data sovereignty compliance. We follow CERT-In cybersecurity guidelines and all access is governed by role-based access control (RBAC) with full audit logs.</div></div></div>
+    <div class="faq-item reveal reveal-delay-2"><button class="faq-q" onclick="toggleFAQ(this)">Is there a mobile app for citizens? <span class="faq-chevron">▾</span></button><div class="faq-a"><div class="faq-a-inner">Yes. AskRobo has native Flutter-based mobile apps for both iOS and Android, featuring voice input, camera upload, real-time tracking notifications, and offline support for low-connectivity areas. The apps are available in both Tamil and English interface languages.</div></div></div>
   </div>
 </section>
 
@@ -981,7 +981,7 @@ footer {
 <section id="contact">
   <div class="section-label">Get In Touch</div>
   <h2 class="section-title reveal">Ready to Transform <br>Governance in Your City?</h2>
-  <p class="section-sub reveal reveal-delay-1">Talk to our team about deploying AskGrobo for your district, municipal corporation, or state government.</p>
+  <p class="section-sub reveal reveal-delay-1">Talk to our team about deploying AskRobo for your district, municipal corporation, or state government.</p>
 
   <div class="contact-grid">
     <div class="contact-info reveal">
@@ -991,7 +991,7 @@ footer {
       </div>
       <div class="contact-detail">
         <div class="contact-icon">✉️</div>
-        <div><h4>Email Support</h4><p>hello@askgrobo.in<br>support@askgrobo.in</p></div>
+        <div><h4>Email Support</h4><p>hello@askrobo.in<br>support@askrobo.in</p></div>
       </div>
       <div class="contact-detail">
         <div class="contact-icon">📞</div>
@@ -999,7 +999,7 @@ footer {
       </div>
       <div class="contact-detail">
         <div class="contact-icon">🤝</div>
-        <div><h4>Sales & Partnerships</h4><p>partnerships@askgrobo.in<br>For government tenders and enterprise deals</p></div>
+        <div><h4>Sales & Partnerships</h4><p>partnerships@askrobo.in<br>For government tenders and enterprise deals</p></div>
       </div>
       <div class="map-placeholder">
         <div class="map-grid"></div>
@@ -1050,7 +1050,7 @@ footer {
         <span class="error-msg">Please enter a message</span>
       </div>
       <button class="btn-primary" style="width:100%;" onclick="submitForm(event,this)">Submit Request →</button>
-      <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);border-radius:10px;font-size:.85rem;color:var(--green);">
+      <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(255,26,26,.06);border:1px solid rgba(255,26,26,.25);border-radius:10px;font-size:.85rem;color:var(--green);">
         ✓ Request submitted successfully. Our team will reach out within 24 hours.
       </div>
     </div>
@@ -1065,7 +1065,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Ask<span>Grobo</span></div>
+  <div class="footer-logo">Ask<span>Robo</span></div>
   <div class="footer-tagline">AI-Powered Multilingual e-Governance Platform · Made in India 🇮🇳</div>
   <div class="footer-badges">
     <span class="footer-badge">🏛️ e-Governance Compliant</span>
@@ -1079,7 +1079,7 @@ footer {
     <a href="#">Tech Stack</a><a href="#">FAQ</a><a href="#">Privacy Policy</a>
     <a href="#">Terms of Service</a><a href="#">Contact</a>
   </div>
-  <div class="footer-bottom">© 2026 ASKGROBO · ALL RIGHTS RESERVED · MADURAI, TAMIL NADU</div>
+  <div class="footer-bottom">© 2024 ASKROBO · ALL RIGHTS RESERVED · MADURAI, TAMIL NADU</div>
 </footer>
 
 <script>
@@ -1098,12 +1098,12 @@ function animRing(){
 }
 animRing();
 document.querySelectorAll('a,button,.feat-card,.dept-card,.tl-item,.faq-q').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ cursor.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.borderColor='rgba(0,229,255,.6)'; });
-  el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.borderColor='rgba(0,229,255,.4)'; });
+  el.addEventListener('mouseenter',()=>{ cursor.style.transform='translate(-50%,-50%) scale(2)'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; ring.style.borderColor='rgba(255,26,26,.6)'; });
+  el.addEventListener('mouseleave',()=>{ cursor.style.transform='translate(-50%,-50%) scale(1)'; ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.borderColor='rgba(255,26,26,.4)'; });
 });
 
 // ── LOADER ──
-const loaderTexts=['INITIALIZING AI ENGINE...','LOADING MULTILINGUAL MODELS...','CONNECTING TO GOVT PORTAL...','SECURING ENCRYPTION LAYER...','ASKGROBO READY'];
+const loaderTexts=['INITIALIZING AI ENGINE...','LOADING MULTILINGUAL MODELS...','CONNECTING TO GOVT PORTAL...','SECURING ENCRYPTION LAYER...','ASKROBO READY'];
 let li=0;
 const lt=document.getElementById('loaderText');
 const ltInterval=setInterval(()=>{
@@ -1131,7 +1131,7 @@ function drawParticles(){
     if(p.y<0||p.y>H)p.vy*=-1;
     ctx.beginPath();
     ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(0,229,255,${p.o})`;
+    ctx.fillStyle=`rgba(255,26,26,${p.o})`;
     ctx.fill();
   });
   pts.forEach((a,i)=>{
@@ -1140,7 +1140,7 @@ function drawParticles(){
       if(d<120){
         ctx.beginPath();
         ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-        ctx.strokeStyle=`rgba(0,229,255,${.12*(1-d/120)})`;
+        ctx.strokeStyle=`rgba(255,26,26,${.12*(1-d/120)})`;
         ctx.lineWidth=.5; ctx.stroke();
       }
     });
@@ -1185,7 +1185,7 @@ drawParticles();
         if(first){gctx.moveTo(p.x,p.y);first=false;}
         else gctx.lineTo(p.x,p.y);
       }
-      gctx.strokeStyle='#00e5ff'; gctx.lineWidth=.5; gctx.stroke();
+      gctx.strokeStyle='#ff1a1a'; gctx.lineWidth=.5; gctx.stroke();
     }
     for(let i=0;i<=lonLines;i++){
       const lon=(i/lonLines)*Math.PI*2;
@@ -1205,7 +1205,7 @@ drawParticles();
       if(!p.visible)return;
       gctx.beginPath();
       gctx.arc(p.x,p.y,d.size*(p.z+.2),0,Math.PI*2);
-      gctx.fillStyle=`rgba(0,229,255,${d.o*p.z})`;
+      gctx.fillStyle=`rgba(255,26,26,${d.o*p.z})`;
       gctx.fill();
     });
     gctx.restore();
@@ -1317,7 +1317,7 @@ buildDeptChart();
   dctx.beginPath(); dctx.arc(cx,cy,r,0,Math.PI*2);
   dctx.strokeStyle='rgba(255,255,255,.08)'; dctx.lineWidth=lw; dctx.stroke();
   dctx.beginPath(); dctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+Math.PI*2*pct);
-  dctx.strokeStyle='#00ff88'; dctx.lineWidth=lw; dctx.lineCap='round'; dctx.stroke();
+  dctx.strokeStyle='#ffffff'; dctx.lineWidth=lw; dctx.lineCap='round'; dctx.stroke();
 })();
 
 // ── FAQ ──
@@ -1366,7 +1366,7 @@ function animateOTP(){
       boxes[i].classList.add('filled');
       if(i===5){
         setTimeout(()=>{
-          boxes.forEach(b=>{b.style.background='rgba(0,255,136,.15)';b.style.borderColor='var(--green)';});
+          boxes.forEach(b=>{b.style.background='rgba(255,255,255,.15)';b.style.borderColor='var(--green)';});
           otpAnimRunning=false;
         },500);
       }
@@ -1445,10 +1445,10 @@ window.addEventListener('scroll',()=>{
 window.addEventListener('scroll',()=>{
   const nav=document.getElementById('navbar');
   if(window.scrollY>80){
-    nav.style.background='rgba(2,4,8,.95)';
+    nav.style.background='rgba(255,255,255,.97)';
     nav.style.borderBottomColor='rgba(255,255,255,.12)';
   } else {
-    nav.style.background='rgba(2,4,8,.7)';
+    nav.style.background='rgba(255,255,255,.85)';
     nav.style.borderBottomColor='rgba(255,255,255,.08)';
   }
 });
