@@ -667,6 +667,55 @@ footer {
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
 }
 
+/* ── WHATSAPP BUTTON ── */
+#whatsapp-btn {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.5);
+  transition: all .3s;
+  text-decoration: none;
+}
+#whatsapp-btn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 32px rgba(37,211,102,.65);
+  background: #20ba5a;
+}
+#whatsapp-btn svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+#whatsapp-tooltip {
+  position: fixed;
+  bottom: 7.2rem;
+  right: 5.2rem;
+  z-index: 1001;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-body);
+  font-size: .76rem;
+  padding: .4rem .85rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.13);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+#whatsapp-btn:hover + #whatsapp-tooltip,
+#whatsapp-tooltip.show { opacity: 1; }
+
 /* Chief Minister Portrait */
 .cm-portrait{
   position:absolute;
@@ -724,6 +773,16 @@ footer {
 </div>
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<!-- WHATSAPP BUTTON -->
+<a id="whatsapp-btn"
+   href="https://wa.me/919176680780?text=Hello%2C%0A%0AI%27m+visiting+the+ASK+TN+website.+Is+anyone+available+to+assist+me%3F%0A%0AThank+you."
+   target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M16.003 3.2C9.009 3.2 3.2 9.01 3.2 15.999c0 2.26.594 4.474 1.726 6.415L3.2 28.8l6.567-1.72a12.74 12.74 0 0 0 6.236 1.627h.003C22.993 28.707 28.8 22.896 28.8 15.999 28.8 9.01 22.993 3.2 16.003 3.2zm0 23.314a10.59 10.59 0 0 1-5.411-1.481l-.388-.23-4.017 1.052 1.071-3.915-.253-.4A10.56 10.56 0 0 1 5.4 15.999c0-5.847 4.756-10.6 10.604-10.6 5.851 0 10.597 4.753 10.597 10.6 0 5.848-4.746 10.515-10.597 10.515zm5.821-7.888c-.319-.16-1.887-.93-2.18-1.037-.292-.107-.504-.16-.717.16-.212.319-.82 1.037-.937 1.25-.118.213-.239.24-.558.08-.319-.16-1.347-.497-2.566-1.583-.948-.846-1.588-1.89-1.775-2.21-.186-.318-.02-.49.14-.648.144-.143.319-.373.478-.559.16-.186.213-.32.32-.532.106-.213.053-.4-.027-.559-.08-.16-.717-1.727-.982-2.365-.258-.621-.52-.537-.717-.547l-.611-.01c-.213 0-.559.08-.851.4-.292.319-1.116 1.09-1.116 2.657 0 1.566 1.143 3.08 1.303 3.293.16.212 2.248 3.432 5.448 4.814.761.33 1.355.527 1.818.674.764.243 1.46.209 2.009.127.613-.091 1.887-.77 2.153-1.514.266-.744.266-1.38.186-1.514-.08-.133-.293-.213-.612-.373z"/>
+  </svg>
+</a>
+<div id="whatsapp-tooltip">Chat with us on WhatsApp</div>
 
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
@@ -1310,6 +1369,30 @@ window.addEventListener('scroll',()=>{stBtn.classList.toggle('visible',window.sc
 
 // NAV SCROLL
 window.addEventListener('scroll',()=>{const nav=document.getElementById('navbar');nav.style.boxShadow=window.scrollY>80?'0 4px 24px rgba(192,57,43,.15)':'0 2px 20px rgba(212,160,23,.2)';});
+
+// WHATSAPP TOOLTIP
+(function(){
+  const btn=document.getElementById('whatsapp-btn');
+  const tip=document.getElementById('whatsapp-tooltip');
+  if(!btn||!tip)return;
+  btn.addEventListener('mouseenter',()=>tip.classList.add('show'));
+  btn.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+})();
 </script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a1efab4c2b8e51c2dcfc8ed/1jq4g6kgd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
 </body>
 </html>
